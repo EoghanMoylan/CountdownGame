@@ -1,8 +1,8 @@
 words = open("wordlist.txt", "r")
-original = "education"
+original = "pool"
 annagrams = []
      
-other = list(original.rstrip())
+other = list(original.rstrip())			 
 	
 def compare(l1, l2):
 	isValid = True
@@ -16,11 +16,21 @@ def compare(l1, l2):
 			isValid = False
 	return isValid
 
-for word in words:
-	word = word.rstrip()
-	if len(word) <= len(original):
-		if compare(other, list(word)) == True:
-			annagrams.append(word)
+def mainOne():
+	for word in words:
+		word = word.rstrip()
+		if len(word) <= len(original):
+			if compare(other, list(word)) == True:
+				annagrams.append(word)
 		
+mainOne()
+
 for annagram in annagrams:
-	print(annagram)
+	print(annagram)		 
+			 
+if __name__ == '__main__':
+	import timeit
+	numLoops = 100
+	time = timeit.timeit("mainOne", setup="from __main__ import mainOne", number = numLoops)
+	print(time)
+	print(numLoops, "Loops, Average of",  time/100, "seconds per loop")
