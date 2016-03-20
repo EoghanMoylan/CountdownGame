@@ -1,5 +1,8 @@
+import time
+start_time = time.time()
+
 words = open("wordlist.txt", "r")
-original = "pool"
+original = "eductaion"
 annagrams = []
      
 other = list(original.rstrip())			 
@@ -19,7 +22,7 @@ def compare(l1, l2):
 def mainOne():
 	for word in words:
 		word = word.rstrip()
-		if len(word) <= len(original):
+		if len(word) <= len(original) and len(word) >= 4:
 			if compare(other, list(word)) == True:
 				annagrams.append(word)
 		
@@ -27,10 +30,5 @@ mainOne()
 
 for annagram in annagrams:
 	print(annagram)		 
-			 
-if __name__ == '__main__':
-	import timeit
-	numLoops = 100
-	time = timeit.timeit("mainOne", setup="from __main__ import mainOne", number = numLoops)
-	print(time)
-	print(numLoops, "Loops, Average of",  time/100, "seconds per loop")
+	
+print("--- %s seconds ---" % (time.time() - start_time))
