@@ -33,9 +33,9 @@ def checkValid(string):
 		return 
 
 def generateWord():
-	newWord = []
 	finished = False
 	while finished == False:
+		newWord = []
 		for i in range(0,9):
 			num = randint(0,1)
 			if num == 1:
