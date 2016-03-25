@@ -34,18 +34,18 @@ def checkValid(string):
 
 def generateWord():
 	newWord = []
-	for i in range(0,9):
-		num = randint(0,1)
-		if num == 1:
-			newWord.append(cons[randint(0,20)])
-		else: 
-			newWord.append(vowels[randint(0,5)])
-	if checkValid(newWord):
-		print ("Letters are : ", newWord)
-		return newWord
-	else :
-		print("Regen>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-		generateWord()
+	finished = False
+	while finished == False:
+		for i in range(0,9):
+			num = randint(0,1)
+			if num == 1:
+				newWord.append(cons[randint(0,20)])
+			else: 
+				newWord.append(vowels[randint(0,5)])
+		if checkValid(newWord):
+			print ("Letters are : ", newWord)
+			finished = True
+			return newWord
 	
 def mainOne():
 	other = generateWord()
