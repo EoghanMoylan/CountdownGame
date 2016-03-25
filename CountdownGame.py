@@ -7,8 +7,7 @@ annagrams = []
 cons = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z']
 vowels = ['a','i','o','u','e','y']
 
-		 
-	
+		 	
 def compare(l1, l2):
 	isValid = True
 	for letter in l1:
@@ -20,6 +19,19 @@ def compare(l1, l2):
 			isValid = False
 	return isValid
 
+def checkValid(string):
+	vCount = 0
+	cCount =0
+	for letter in string:
+		if letter in vowels:
+			vCount += 1
+		else:
+			cCount += 1
+	if vCount >= 3 and cCount >= 4:
+		return True
+	else:
+		return 
+
 def generateWord():
 	newWord = []
 	for i in range(0,9):
@@ -28,9 +40,12 @@ def generateWord():
 			newWord.append(cons[randint(0,20)])
 		else: 
 			newWord.append(vowels[randint(0,5)])
-	print ("Letters are : ", newWord)
-	return newWord
-	
+	if checkValid(newWord):
+		print ("Letters are : ", newWord)
+		return newWord
+	else :
+		print("Regen>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+		generateWord()
 	
 def mainOne():
 	other = generateWord()
