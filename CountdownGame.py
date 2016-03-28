@@ -39,7 +39,7 @@ def checkValid(string):
 	if vCount >= 3 and cCount >= 4:
 		return True
 	else:
-		return 
+		return False
 
 def generateWord():
 	#generates the letters used for the countdown game
